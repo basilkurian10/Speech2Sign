@@ -42,7 +42,7 @@ export default async function Home() {
     setTimeout(() => {
       if (typeof window !== 'undefined') {
         // This code runs only on the client side
-        const value = sessionStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
+        const value = localStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
         setStoredValue(value);
         console.log("storedValue",storedValue,"G",value)
       }
