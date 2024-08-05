@@ -2,9 +2,6 @@
 
 import './globals.css';
 import { Inter } from 'next/font/google';
-import { SupabaseProvider, useSupabase } from './context/supabase';
-import { Auth } from '@supabase/auth-ui-react';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -16,19 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SupabaseProvider>
           {/* Auth component will be available on every page */}
-          <AuthUI />
           {children}
-        </SupabaseProvider>
       </body>
     </html>
   );
 }
-
-// Separate Auth UI component
-const AuthUI = () => {
-  const supabase = useSupabase();
-
-  return <Auth supabaseClient={supabase} />;
-};

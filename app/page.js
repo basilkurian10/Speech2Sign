@@ -7,10 +7,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "boxicons/css/boxicons.min.css";
 import Head from "next/head";
 import { startTransition } from "react";
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from '@supabase/supabase-js'
+import { Auth } from '@supabase/auth-ui-react'
+import { ThemeSupa } from '@supabase/auth-ui-shared'
 
 
-// import { useSession, signIn, signOut } from 'next-auth/react';
+const supabase = createClient('https://rhvbaatuqzvuchhbppih.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJodmJhYXR1cXp2dWNoaGJwcGloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjI3MzQ4MzcsImV4cCI6MjAzODMxMDgzN30.TEY4i3pkT_bdj488WYMqpeJT1YGzk3YNAmuCTwM442c')
+
 
 export default async function Home() {
   const textBoxRef = useRef(null);
@@ -30,9 +33,6 @@ export default async function Home() {
   const recognitionRef = useRef(null);
   const [wordArray, setWordArray] = useState([]);
 
-  // const supabase = createClient();
-  // const session = await supabase?.auth?.getSession();
-  // const user = session.data?.session?.user;
 
   useEffect(() => {
     const loadThreeJS = async () => {
@@ -232,6 +232,11 @@ export default async function Home() {
 
   return (
     <>
+      <Auth
+    supabaseClient={supabase}
+    appearance={{ theme: ThemeSupa }}
+    providers={['google', 'facebook', 'twitter']}
+  />
       <Head>
         <title>Signify - Home</title>
         <link
