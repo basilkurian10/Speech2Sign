@@ -48,13 +48,13 @@ export default async function Home() {
   }, []);
 
 
-  useEffect(() => {
-    const loadThreeJS = async () => {
-      const module = await import("../public/main.js");
-      module.initThreeJS(wordArray, handleFeedback);
-    };
-    loadThreeJS();
-  }, [animateButton]);
+  // useEffect(() => {
+  //   const loadThreeJS = async () => {
+  //     const module = await import("../public/main.js");
+  //     module.initThreeJS(wordArray, handleFeedback);
+  //   };
+  //   loadThreeJS();
+  // }, [animateButton]);
   
 
   const handlePause = () => {
