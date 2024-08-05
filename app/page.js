@@ -39,12 +39,14 @@ export default async function Home() {
   const [storedValue, setStoredValue] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // This code runs only on the client side
-      const value = sessionStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
-      setStoredValue(value);
-      console.log("storedValue",storedValue)
-    }
+    setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        // This code runs only on the client side
+        const value = sessionStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
+        setStoredValue(value);
+        console.log("storedValue",storedValue,"G",value)
+      }
+    }, 2000);
   }, []);
 
 
