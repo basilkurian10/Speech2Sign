@@ -33,10 +33,20 @@ export default async function Home() {
   const [isListening, setIsListening] = useState(false);
   const recognitionRef = useRef(null);
   const [wordArray, setWordArray] = useState([]);
+  const [user,setUser]=useState(null)
 
-  const {
-    data: { userDetails },
-  } = await supabase.auth.getUser()
+
+  const [storedValue, setStoredValue] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // This code runs only on the client side
+      const value = sessionStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
+      setStoredValue(value);
+      console.log("storedValue",storedValue)
+    }
+  }, []);
+
 
   useEffect(() => {
     const loadThreeJS = async () => {
@@ -45,11 +55,7 @@ export default async function Home() {
     };
     loadThreeJS();
   }, [animateButton]);
-
-  useEffect(()=>{
-    console.log("userDetails",userDetails)
-
-  },[userDetails])
+  
 
   const handlePause = () => {
     if (typeof window !== "undefined" && window.pauseRendering) {

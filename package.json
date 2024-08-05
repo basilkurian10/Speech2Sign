@@ -22,6 +22,7 @@
     "autoprefixer": "10.4.14",
     "bootstrap": "^5.3.3",
     "boxicons": "^2.1.4",
+    "bufferutil": "^4.0.8",
     "concurrently": "^8.0.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
@@ -33,7 +34,8 @@
     "supabase": "^1.187.10",
     "tailwindcss": "3.3.2",
     "three": "^0.165.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "utf-8-validate": "^6.0.4"
   },
   "engines": {
     "node": "18.x"
