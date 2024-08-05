@@ -45,6 +45,7 @@ export default async function Home() {
         const value = localStorage?.getItem('sb-rhvbaatuqzvuchhbppih-auth-token');
         setStoredValue(value);
         console.log("storedValue",storedValue,"G",value)
+        setUser(value?.user)
       }
     }, 2000);
   }, []);
